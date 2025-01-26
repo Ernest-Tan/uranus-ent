@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigation Bar with Animated Heading</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    /* Custom CSS for heading animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animated-heading {
+      animation: fadeIn 2s ease-in-out;
+      text-align: center;
+      margin-top: 0;
+      padding: 0;
+      background: url("grphoto.jpeg") no-repeat center center/cover;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .navbar-custom {
+      background-color: transparent;
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+      transition: background-color 0.3s;
+    }
+
+    .navbar-custom.scrolled {
+      background-color: white;
+    }
+
+    .navbar-custom .nav-link {
+      color: white;
+    }
+
+    .navbar-custom.scrolled .nav-link {
+      color: black;
+    }
+
+    .navbar-custom .nav-link:hover {
+      color: #f0ad4e;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .about-section {
+      display: flex;
+      justify-content: space-between;
+      padding: 50px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .about-text {
+      flex: 1;
+      text-align: justify;
+    }
+
+    .about-image {
+      flex: 1;
+      max-width: 100%;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      height: 80%;
+      border-radius: 10px;
+
+    }
+
+    .about-section h1 {
+      padding: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="uranus.png" alt="Brand Logo" style="height: 60px" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Animated Heading -->
+  <div class="animated-heading">
+    <h1>Uranus Enterprise</h1>
+    <p>Venturing beyond expectations</p>
+    <button>Click to learn more</button>
+  </div>
+
+  <!-- About Us Section -->
+  <div class="container mt-5">
+    <h1>About Us</h1>
+    <div class="row">
+      <div class="col">
+        <p>
+          Welcome to Uranus Enterprise, a dynamic company founded in the vibrant community of Penang’s Chung Ling High
+          School. Specializing in cutting-edge STEM-related products, we strive to inspire innovation, curiosity, and
+          progress while staying deeply committed to conservating and protective mother Earth. Guided by our core values
+          of teamwork, creativity, integrity, and sustainability, we aim to empower future generations to explore new
+          frontiers while protecting our planet.
+        </p>
+        <p>
+          Inspired by the vast wonders of the galaxy, our name reflects our mission: to reach for the stars, embrace
+          infinite possibilities, and create solutions that leave a positive impact on Earth. At Uranus Enterprise, we
+          believe that by uniting passion with purpose, we can shape a brighter and more sustainable future for all.
+        </p>
+      </div>
+      <div class="col">
+        <img src="DSCN3720.JPG" alt="About Us Image" class="img-fluid rounded shadow " />
+      </div>
+    </div>
+
+
+
+
+    <!-- Activities from the past -->
+
+    <!-- <div class="section3 mt-5">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-auto button" id="improvise-btn">
+            <button>Improvise</button>
+          </div>
+          <div class="col-auto button" id="adapt-btn">
+            <button>Adapt</button>
+          </div>
+          <div class="col-auto button" id="overcome-btn">
+            <button>Overcome</button>
+          </div>
+
+
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="container mt-5">
+      <div class="card">
+        <div class="row g-0">
+          <div class="card-body">
+          <div class="col-auto">
+            <p id="display-text"></p>
+            <div id="popup-message"
+            style="display: none; text-align: center; padding: 10px; background: rgba(0, 0, 0, 0.7); color: white; border-radius: 5px; margin-top: 10px;">
+            Scroll detected! Default image shown.
+          </div>
+          </div>
+        </div>
+          <div class="col-auto">
+            <img class="img-fluid" id="dynamic-image" src="" alt="section3">
+        </div>
+          <div class="col-md-4">
+            <img src="" id="dynamic-image" class="img-fluid rounded-start m-2" alt="Card Image">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div id="popup-message" style="display: none">
+                Scroll detected! Default image shown.
+              </div>
+              <div style="display: none" id="card-text2">
+                <h5 class="card-title">Card Title</h5>
+                <p id="display-text"></p>
+                <figure>
+                  <blockquote class="blockquote">
+                    <p id="display-text2"></p>
+                  </blockquote>
+                  <div class="display-text3">
+                    <figcaption class="blockquote-footer">
+                    
+                  </figcaption>
+                </div>
+                  
+                </figure>
+                <p class="display-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+    <!-- Products -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <button type="button" class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="prodImg/fan.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Multipurpose Electronic Fans</h5>
+              <p class="card-text">Stay cool in style with the innovative rechargeable fan, crafted from durable PVC
+                pipes for a lightweight, eco-friendly design. Perfectly compact and portable, it’s your ideal companion
+                for beating the heat, whether indoors or outdoors. Powered by a rechargeable battery, this fan combines
+                convenience and sustainability, keeping you refreshed wherever you go.
+              </p>
+            </div>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Multipurpose electronic fans</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Stay tuned!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <button type="button" class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="prodImg/DSCF0368-2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Aurasound speakers</h5>
+              <p class="card-text">Meet the Aurasound Speaker "The Box" – a stylish plywood design with eco-friendly
+                paper cup and cardboard tube interiors. Delivering rich, amplified sound, it’s the perfect blend of
+                creativity and performance for your space. Just slot in your phone and you're ready the go!</p>
+            </div>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Aurasound speakers</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Stay tuned!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <button type="button" class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="prodImg/chair.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Gravity Chair</h5>
+              <p class="card-text">The Gravity Chair is the ultimate blend of comfort and portability. With refined
+                architectures and the help of velcro belts, its foldable mounting board base collapses to the size of a
+                book, while the plush cushion ensures comfort wherever you go. Perfect for travel, relaxation, or small
+                spaces!</p>
+            </div>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Gravity chair</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Stay tuned!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- <footer class="bg-dark text-white w-max mt-5 p-0 m-0" style="padding: 0;">
+      <div class="py-4" style="margin: 0;">
+        <div class="row mx-0">
+ 
+          <div class="col-md-4 px-4">
+            <h5>About Us</h5>
+            <p>
+              Uranus Enterprise is dedicated to delivering innovative solutions and creating impactful experiences for
+              our customers. Join us in redefining industry standards!
+            </p>
+          </div>
+
+          <div class="col-md-4 px-4">
+            <h5>Contact Us</h5>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-telephone"></i> +1-234-567-890</li>
+              <li><i class="bi bi-envelope"></i> info@uranusenterprise.com</li>
+              <li><i class="bi bi-geo-alt"></i> 123 Innovation Street, City, Country</li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 px-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+              <li><a href="#" class="text-white text-decoration-none">About</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Services</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="border-light mx-0" />
+
+        <div class="text-center py-2">
+          <p class="mb-0">
+            &copy; 2025 Uranus Enterprise. All rights reserved.
+          </p>
+          <p>
+            <a href="#" class="text-white text-decoration-none me-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white text-decoration-none me-2"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-white text-decoration-none"><i class="bi bi-linkedin"></i></a>
+          </p>
+        </div>
+      </div>
+    </footer> -->
+
+    <!-- Carousel of pictures -->
+
+    <p class="text-center">Stay tuned for more updates!</p>
+    <script>
+      // Change navbar background on scroll
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar-custom");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Image and popup references
+      const dynamicImage = document.getElementById('dynamic-image');
+      const popupMessage = document.getElementById('popup-message');
+      const cardText = document.getElementById("card-text2")
+      const displayText = document.getElementById("display-text");
+      const displayText2 = document.getElementById("display-text2")
+      const displayText3 = document.getElementById("display-text3")
+      // Track if a button has been clicked
+      let isButtonClicked = false;
+
+      // Set default image on load
+      window.addEventListener('load', () => {
+        dynamicImage.src = 'grphoto.jpeg';
+        dynamicImage.alt = 'Default Image';
+        displayText.textContent = "Uranus have a lot of aktiviti sial"
+        cardText.style.display = 'none';
+      });
+
+      // Add event listeners to buttons
+      document.getElementById('improvise-btn').addEventListener('click', () => {
+        isButtonClicked = true;
+        popupMessage.style.display = 'none'; // Hide popup if visible
+        dynamicImage.src = 'caroImg/psc.jpg';
+        dynamicImage.alt = 'PSC1';
+        displayText2.textContent = "“Live as if you were to die tomorrow. Learn as if you were to live forever.”"
+        displayText3.textContent = "Mahatma Gandhi"
+        displayText.textContent = "In order to manufacture products that has STEM approach, Uranus Enterprise has visited companies such as PSC, an inspiring NGO organization dedicated to fostering creativity and innovation. During our visit, we were introduced to advanced tools like laser cutters and 3D printers, essential for modern manufacturing processes. The hands-on experience provided by PSC allowed us to learn the operational techniques of these machines, empowering us to incorporate them into our mass production phase. This collaboration not only enhanced our technical skills but also reinforced the importance of utilizing cost-effective and precise technologies in streamlining production. Our partnership with PSC marks a significant step toward achieving efficiency and quality in our products."
+        cardText.style.display = 'block';
+      });
+
+      document.getElementById('adapt-btn').addEventListener('click', () => {
+        isButtonClicked = true;
+        popupMessage.style.display = 'none'; // Hide popup if visible
+        dynamicImage.src = 'grphoto.jpeg';
+        dynamicImage.alt = 'Adapt Image';
+        displayText.textContent = "Uranus know how to adapt sial"
+        cardText.style.display = 'block';
+      });
+
+      document.getElementById('overcome-btn').addEventListener('click', () => {
+        isButtonClicked = true;
+        popupMessage.style.display = 'none'; // Hide popup if visible
+        dynamicImage.src = 'grphoto.jpeg';
+        dynamicImage.alt = 'Overcome Image';
+        displayText.textContent = "Uranus know how to overcome"
+        cardText.style.display = 'block';
+      });
+
+      // Show popup on scroll if no button has been clicked
+      window.addEventListener('scroll', () => {
+        if (!isButtonClicked) {
+          popupMessage.style.display = 'block'; // Show popup
+        }
+      });
+
+      const overlay = document.getElementById('overlay');
+      const proceedButton = document.getElementById('proceed-btn');
+  
+      // Fade-out logic
+      proceedButton.addEventListener('click', () => {
+        overlay.classList.add('hidden');
+        document.body.style.overflow = 'auto'; // Allow scrolling after fade-out
+      });
+    </script>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
